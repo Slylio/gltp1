@@ -2,39 +2,20 @@ package tp1;
 public class Carte implements iCarte{
     public static enum Couleurs{TREFLE, CARREAU, COEUR, PIQUE}
     private Couleurs couleur;
-    private int valeur;
+    public static enum Valeurs{AS, DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF, DIX, VALET, DAME, ROI}
+    private Valeurs valeur;
 
-    public static void main(String[] args) {
-        try{
-            Carte carte1=new Carte(2,Couleurs.PIQUE);
-            Carte carte2=new Carte(9,Couleurs.PIQUE);
-            Carte carte3=new Carte(96,Couleurs.COEUR);
-            testDisplayEnum();
-            System.out.println(carte1.getCouleur());
-            System.out.println(carte1.getValeur());
-            System.out.println(carte3);
-            System.out.println(compareTo(carte1.getValeur(),carte2.getValeur()));
-            System.out.println(equals(carte1.getCouleur(),carte2.getCouleur()));
-
-        } catch (Exception e){
-            System.err.println(e);
-        }
-        
-
-    }
-    public Carte(int valeur,Couleurs couleur)throws Exception{
-        if (valeur<0 || valeur>13){
-            throw new Exception("Veuillez entrer une valeur correcte !");
-        }
+    public Carte(Valeurs valeur,Couleurs couleur)throws Exception{
         this.couleur=couleur;
         this.valeur=valeur;
     }   
-
-    public static void testDisplayEnum(){
-        for (Couleurs couleur : Couleurs.values()){
-            System.out.println(couleur);
-        }
-    }
+    
+    /**
+     * 
+     * @param couleur1
+     * @param couleur2
+     * @return boolean
+     */
     public static boolean equals(Couleurs c, Couleurs o){
         if (c==o){
             return true;
@@ -42,17 +23,30 @@ public class Carte implements iCarte{
             return false;
         }
     }
-
-    public static int compareTo(int v, int o){
-        if (v>o){
+    /**
+     * Compare deux cartes
+     * @param carte1
+     * @param carte2
+     * @return -1 0 1
+     */
+    public static int compareTo(Carte v, Carte o){
+        if (v.getValeur().ordinal()>o.getValeur().ordinal()){
             return 1;
-        } else if (o> v){
+        } else if (v.getValeur().ordinal()<o.getValeur().ordinal()){
             return -1;
         } else {
             return 0;
         }
     }
-    public int getValeur(){
+
+    /**
+     * renvoit la carte
+     */
+    public Carte donneCarte(){
+        return this;
+    }
+
+    public Valeurs getValeur(){
         return valeur;
     }
     public Couleurs getCouleur(){
@@ -60,11 +54,6 @@ public class Carte implements iCarte{
     }
     
     public String toString(){
-        return valeur+" "+couleur;
+        return valeur+"-"+couleur;
     }
-
-    public iCarte donneCarte(){
-        return this;
-    }
-
 }
