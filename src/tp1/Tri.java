@@ -8,9 +8,9 @@ public class Tri implements Comparator<iCarte> {
      * @return Main
      */
     public int compare(iCarte o1, iCarte o2){
-        if(((Carte)o1).getValeur()> ((Carte)o2).getValeur()){
+        if(((Carte)o1).getValeur().ordinal() > ((Carte)o2).getValeur().ordinal()){
             return 1;
-        }else if(o1==o2){
+        }else if(((Carte)o1).getValeur().ordinal() == ((Carte)o2).getValeur().ordinal()){
             return 0;
         }
         return -1;
