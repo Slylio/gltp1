@@ -21,7 +21,7 @@ public class PaquetDeCartes{
                 try {
                     Carte carte=new Carte(valeur,couleur);
                     cartes.add(carte);
-                    System.out.println(carte);
+                    /*System.out.println(carte);*/ //Affichage génération du jeu de Cartes
                     i++;
                 } catch(Exception e) {
                     System.err.println(e);
@@ -46,8 +46,7 @@ public class PaquetDeCartes{
      */
     public void tirage(Main main, int nombre){
         for (int i=0; i<nombre;i++) {
-            main.ajouter(cartes.get(i));
-            cartes.remove(i);
+            main.piocher();
         }
     }
     /**

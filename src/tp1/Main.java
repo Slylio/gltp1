@@ -40,6 +40,9 @@ public class Main extends Vector<Carte>{
         this.sort(new Tri());
     }
 
+    public void shuffle(){
+        Collections.shuffle(this);
+    }
     /**
      * ajoute une carte a la main
      * @param carte
@@ -47,4 +50,39 @@ public class Main extends Vector<Carte>{
     public void ajouter(Carte carte){
         this.add(carte);
     }
+    /**
+     * retire la carte de la main
+     * @param carte
+    */
+    public void retirer(Carte carte){
+        this.remove(carte);
+    }
+
+    public void inserer(int i, Carte carte){
+        this.insertElementAt(carte, i);
+    }
+    /**
+     * renvois la carte au dessus de la main
+     * @returrn Carte (du dessus)
+     */
+
+     public Carte carteAuDessus(){
+        return this.elementAt(this.size()-1);
+     }
+
+     public void metAuFond(){
+        this.inserer(0, carteAuDessus());
+        this.remove(this.size()-1);
+     }
+
+     /**
+      * Transfère toutes les cartes d'une main dans une autre 
+      * @param main
+      */
+     public void donneToutesLesCartes(Main main){
+         for (Carte c : this){
+            main.add(c);
+            this.retirer(c);
+         }
+     }
 }

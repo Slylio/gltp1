@@ -29,10 +29,10 @@ public class Carte implements iCarte{
      * @param carte2
      * @return -1 0 1
      */
-    public static int compareTo(Carte v, Carte o){
-        if (v.getValeur().ordinal()>o.getValeur().ordinal()){
+    public int compareTo(Carte o){
+        if (this.getValeur().ordinal()>o.getValeur().ordinal()){
             return 1;
-        } else if (v.getValeur().ordinal()<o.getValeur().ordinal()){
+        } else if (this.getValeur().ordinal()<o.getValeur().ordinal()){
             return -1;
         } else {
             return 0;
