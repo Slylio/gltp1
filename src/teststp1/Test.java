@@ -1,6 +1,7 @@
 package teststp1;
 import tp1.*;
 public class Test{
+    
     public static void main(String[] args) throws Exception{
     /* Simulation de partie de bataille */
     PaquetDeCartes paquet = PaquetDeCartes.getInstance(); 
