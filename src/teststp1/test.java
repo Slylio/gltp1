@@ -47,5 +47,6 @@ public class Test{
         }
         System.out.println("La partie s'est terminé au bout de "+compteur+" coups");
     }
+    
 }            
 
